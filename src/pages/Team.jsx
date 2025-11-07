@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import Lottie from "lottie-react";
+import { useNavigate } from "react-router-dom"; // <-- 1. IMPORTED useNavigate
+import { ArrowLeft } from "lucide-react"; // <-- 2. IMPORTED ArrowLeft
+
 import Footer from "../components/Common/Footer";
 import Navbar from "../components/Common/Navbar";
 import MemberCard from "../components/Teams/MemberCard";
@@ -12,6 +15,7 @@ import leads_24_25 from "../data/leads-24-25.js";
 
 const Team = () => {
   const [selectedYear, setSelectedYear] = useState("25-26");
+  const navigate = useNavigate(); // <-- 3. CALLED THE HOOK
 
   const getTeamMembers = () => {
     switch (selectedYear) {
@@ -33,6 +37,15 @@ const Team = () => {
 
   return (
     <>
+      {/* 4. ADDED YOUR BUTTON HERE */}
+      <button 
+        onClick={() => navigate(-1)} 
+        className="fixed top-24 left-8 sm:left-20 z-50 flex items-center text-white hover:text-[#b19eff] transition-colors"
+      >
+        <ArrowLeft className="w-8 h-8 mr-3" />
+        <span className="hidden sm:inline font-semibold text-lg">Back</span>
+      </button>
+
       <div className="min-h-screen flex flex-col bg-bgGradient ">
         <Navbar />
         <div className="max-w-[1280px] w-full px-4 mx-auto flex flex-col items-center flex-grow mt-10">
