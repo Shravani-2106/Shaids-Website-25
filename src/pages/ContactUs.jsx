@@ -6,12 +6,14 @@ import contact from "../assets/images/contact.json";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import CallOutlinedIcon from "@mui/icons-material/CallOutlined";
+import { ArrowLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import Footer from "../components/Common/Footer";
 import Navbar from "../components/Common/Navbar";
 import axios from "axios";
-// import { CircularProgress } from "@mui/material"; // Import loading spinner
 
 const ContactUs = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -44,22 +46,31 @@ const ContactUs = () => {
   return (
     <>
       <Navbar />
-      <div className="bg-bgGradient text-white font-Outfit flex flex-col  h-full px-12 xl:flex-row justify-around items-center sm:px-32 py-24 xl:px-32 overflow-hidden">
+
+      {/* Back Button */}
+      <button
+        onClick={() => navigate(-1)}
+        className="fixed top-5 left-20 z-50 flex items-center text-white hover:text-[#b19eff] transition-colors"
+      >
+        <ArrowLeft className="w-6 h-6 mr-2" />
+        <span className="hidden sm:inline font-semibold"></span>
+      </button>
+
+      {/* Main Container */}
+      <div className="bg-bgGradient text-white font-Outfit flex flex-col h-full px-6 xl:flex-row justify-around items-center sm:px-16 py-20 xl:px-32 overflow-hidden">
         <Toaster position="top-right" reverseOrder={false} />
-        {/* Top text box */}
-        <div className="flex flex-col gap-1  sm:text-left xl:w-1/2">
-          {/* <span className="bg-buttonGradient rounded-2xl px-4 py-1  w-max md:text-xl">
-            CONTACT US
-          </span> */}
-          <h1 className="font-NordMedium text-2xl sm:text-4xl md:text-5xl">
+
+        {/* Left Content */}
+        <div className="flex flex-col gap-4 sm:text-left xl:w-1/2">
+          <h1 className="font-NordMedium text-3xl sm:text-4xl md:text-5xl">
             Let's get in touch.
           </h1>
-          <span className="flex text-sm text-center flex-col sm:text-xl sm:text-left sm:gap-2 sm:flex-row md:text-2xl">
+          <p className="text-sm sm:text-lg md:text-xl">
             Or just reach out manually to{" "}
             <span className="text-[#9654F4] underline">
               shaids_dmce@dmce.ac.in
             </span>
-          </span>
+          </p>
           <Lottie
             animationData={contact}
             className="hidden xl:block size-3/4"
@@ -67,18 +78,15 @@ const ContactUs = () => {
           />
         </div>
 
-        {/* Form */}
-        <div className="flex flex-col w-full xl:w-1/3 mt-8">
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col gap-5"
-          >
-            {/* Full Name Field */}
+        {/* Contact Form */}
+        <div className="flex flex-col w-full xl:w-1/3 mt-10 xl:mt-0">
+          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
+            {/* Full Name */}
             <span className="flex flex-col gap-2">
               Full name
               <span
-                className={`custom-input flex p-2 gap-2 md:py-3 ${
-                  errors.fullName ? "error" : ""
+                className={`custom-input flex p-2 gap-2 md:py-3 border rounded-lg ${
+                  errors.fullName ? "border-red-500" : "border-gray-500"
                 }`}
               >
                 <AccountCircleOutlinedIcon />
@@ -90,18 +98,16 @@ const ContactUs = () => {
                 />
               </span>
               {errors.fullName && (
-                <p role="alert" className="text-red-600">
-                  Name is required!!!
-                </p>
+                <p className="text-red-500 text-sm">Name is required!</p>
               )}
             </span>
 
-            {/* Email Field */}
+            {/* Email */}
             <span className="flex flex-col gap-2">
               Email
               <span
-                className={`custom-input flex p-2 gap-2 md:py-3 ${
-                  errors.email ? "error" : ""
+                className={`custom-input flex p-2 gap-2 md:py-3 border rounded-lg ${
+                  errors.email ? "border-red-500" : "border-gray-500"
                 }`}
               >
                 <EmailOutlinedIcon />
@@ -113,18 +119,16 @@ const ContactUs = () => {
                 />
               </span>
               {errors.email && (
-                <p role="alert" className="text-red-600">
-                  Email is required!!!
-                </p>
+                <p className="text-red-500 text-sm">Email is required!</p>
               )}
             </span>
 
-            {/* Phone Number Field */}
+            {/* Phone Number */}
             <span className="flex flex-col gap-2">
               Phone Number
               <span
-                className={`custom-input flex p-2 gap-2 md:py-3 ${
-                  errors.phoneNumber ? "error" : ""
+                className={`custom-input flex p-2 gap-2 md:py-3 border rounded-lg ${
+                  errors.phoneNumber ? "border-red-500" : "border-gray-500"
                 }`}
               >
                 <CallOutlinedIcon />
@@ -140,25 +144,19 @@ const ContactUs = () => {
                   })}
                 />
               </span>
-              {errors.phoneNumber?.type === "required" && (
-                <p role="alert" className="text-red-600">
-                  Phone Number is required!!!
-                </p>
-              )}
-              {(errors.phoneNumber?.type === "minLength" ||
-                errors.phoneNumber?.type === "maxLength") && (
-                <p role="alert" className="text-red-600">
-                  Phone Number must be 10 digits!!!
+              {errors.phoneNumber && (
+                <p className="text-red-500 text-sm">
+                  Phone number must be 10 digits!
                 </p>
               )}
             </span>
 
-            {/* Message Field */}
+            {/* Message */}
             <span className="flex flex-col gap-2">
               Message
               <span
-                className={`custom-input flex flex-col p-2 gap-2 md:py-3 ${
-                  errors.Message ? "error" : ""
+                className={`custom-input flex flex-col p-2 gap-2 md:py-3 border rounded-lg ${
+                  errors.Message ? "border-red-500" : "border-gray-500"
                 }`}
               >
                 <textarea
@@ -173,19 +171,16 @@ const ContactUs = () => {
                   })}
                   onChange={(e) => setMessageLength(e.target.value.length)}
                 />
-                {/* Dynamic Bottom Placeholder */}
                 <span className="text-sm text-gray-400 self-end">
                   {messageLength}/{maxLength}
                 </span>
               </span>
               {errors.Message && (
-                <p role="alert" className="text-red-600">
-                  Message is required!!!
-                </p>
+                <p className="text-red-500 text-sm">Message is required!</p>
               )}
             </span>
 
-            {/* Submit Button with Loading Indicator */}
+            {/* Submit Button */}
             <button
               type="submit"
               className="bg-buttonGradient w-max px-4 py-2 rounded-lg self-end cursor-pointer flex items-center gap-2"
@@ -202,6 +197,7 @@ const ContactUs = () => {
           </form>
         </div>
       </div>
+
       <Footer />
     </>
   );
