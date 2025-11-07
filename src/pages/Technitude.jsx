@@ -82,7 +82,6 @@ const Technitude = () => {
         <div className="rounded-lg overflow-hidden border border-purple-400">
           <img src={image3url} alt="Technitude Event 3" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
         </div>
-
         <div className="col-span-2 rounded-lg overflow-hidden border border-purple-400">
           <img src={image5url} alt="Technitude Event 5" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
         </div>
