@@ -1,6 +1,9 @@
-import React from "react";
-import Navbar from "../components/Common/Navbar";
+import React, { useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
+
 import Footer from "../components/Common/Footer";
+import Navbar from "../components/Common/Navbar";
 
 const Technitude = () => {
   const reelURL =
@@ -20,28 +23,44 @@ const Technitude = () => {
     window.open(reelURL, "_blank");
   };
 
-  return (
-    <div className="bg-bgGradient min-h-screen flex flex-col items-center w-full overflow-hidden">
-      <Navbar />
-         <h1 className="text-purple-400 text-3xl sm:text-4xl md:text-6xl mt-16 text-center font-NordBold mb-6">
-        Technitude
-      </h1>
+  const navigate = useNavigate();
 
-      <p className="text-white text-center sm:text-left font-Outfit max-w-3xl md:max-w-6xl mb-8 px-4 leading-relaxed">
-        Technitude is a high-energy, two-day technical event packed with fun,
-        challenges, and exciting competitions! It’s where technology meets
-        thrill, bringing together students to test their skills, compete in
-        unique tech-based games, and enjoy an electrifying atmosphere.
-      </p>
+  const handleClick = () => {
+    console.log("Button clicked! This is a log message.");
+    Navigate(-1);
+  };
+  
+  return (
+    <>
+    <Navbar/>
+    {/* Back Button to Events Page */}
+      <button
+        onClick={() => navigate("/events")}
+        className="fixed top-4 left-20 sm:left-30 z-50 flex items-center text-white hover:text-[#b19eff] transition-colors"
+      >
+        <ArrowLeft className="w-8 h-8 mr-3" />
+        <span className="hidden sm:inline font-Outfit"></span>
+      </button>
+      <div className="bg-bgGradient min-h-screen flex flex-col items-center w-full overflow-hidden">
+            <h1 className="text-purple-400 text-3xl sm:text-4xl md:text-6xl mt-16 text-center font-NordBold mb-6">
+          Technitude
+        </h1>
+
+        <p className="text-white text-center sm:text-left font-Outfit max-w-3xl md:max-w-6xl mb-8 px-4 leading-relaxed">
+          Technitude is a high-energy, two-day technical event packed with fun,
+          challenges, and exciting competitions! It’s where technology meets
+          thrill, bringing together students to test their skills, compete in
+          unique tech-based games, and enjoy an electrifying atmosphere.
+        </p>
 
       <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full max-w-6xl px-4 mb-12">
         <img
           src={image10url}
           alt="Technitude Main Event"
-          className="w-full sm:w-[60%] h-80 sm:h-[24rem] md:h-[28rem] object-cover rounded-lg shadow-lg hover:scale-[1.02] transition-transform duration-500 border border-purple-400"
+          className="w-full sm:w-[76%] h-80 sm:h-[24rem] md:h-[28rem] object-cover rounded-lg shadow-lg hover:scale-[1.02] transition-transform duration-500 border border-purple-400"
         />
 
-        <div onClick={openReelInNewTab} className="w-full sm:w-[30%] cursor-pointer">
+        <div onClick={openReelInNewTab} className="w-full sm:w-[40%] cursor-pointer">
           <video
             src={reelURL}
             loop
@@ -51,26 +70,27 @@ const Technitude = () => {
             playsInline
             className="w-full h-80 sm:h-[24rem] md:h-[28rem] object-cover rounded-lg shadow-lg hover:scale-[1.02] transition-transform duration-500 border border-purple-400"
           />
-        </div>
+        </div> 
       </div>
 
       <div
-        className="
-          grid 
-          grid-cols-2 
-          sm:grid-cols-3 
-          lg:grid-cols-4 
-          auto-rows-[140px] 
-          sm:auto-rows-[160px] 
-          md:auto-rows-[180px]
-          gap-3 
-          max-w-5xl 
-          w-full 
-          px-4 
-          mb-14 
-          [grid-auto-flow:dense]
-        "
-      >
+  className="
+    grid 
+    grid-cols-2 
+    sm:grid-cols-3 
+    lg:grid-cols-4 
+    auto-rows-[140px] 
+    sm:auto-rows-[160px] 
+    md:auto-rows-[180px]
+    gap-3 
+    w-full 
+    max-w-6xl 
+    px-4 
+    mb-14 
+    [grid-auto-flow:dense]
+  "
+>
+
         <div className="col-span-2 row-span-2 rounded-lg overflow-hidden border border-purple-400">
           <img src={image1url} alt="Technitude Event 1" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
         </div>
@@ -98,9 +118,9 @@ const Technitude = () => {
           <img src={image8url} alt="Technitude Event 8" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
         </div>
       </div>
-
+      </div>
       <Footer />
-    </div>
+    </>
   );
 };
 
