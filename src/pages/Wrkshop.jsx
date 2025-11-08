@@ -2,16 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 
-import img1 from "../assets/images/workshop/abhijeet.jpg";
-import img2 from "../assets/images/workshop/ayush.jpg";
-import img3 from "../assets/images/workshop/bhumika.jpg";
-import img4 from "../assets/images/workshop/chetana.jpg";
-import img5 from "../assets/images/workshop/sahil.jpg";
-import img6 from "../assets/images/workshop/raaj.jpg";
-import img7 from "../assets/images/workshop/volunteer3.jpg";
-import img8 from "../assets/images/workshop/frame.jpg";
-import img9 from "../assets/images/workshop/volunteer2.jpg";
-
 import Footer from "../components/Common/Footer";
 import Navbar from "../components/Common/Navbar";
 
@@ -56,12 +46,13 @@ const Wrkshop = () => {
     <>
       <Navbar />
 
-      {/* Back Button */}
+      {/* Back Button to Events Page */}
       <button
-        onClick={() => navigate(-1)}
-        className="fixed top-4 left-12 sm:left-20 z-50 flex items-center text-white hover:text-[#b19eff] transition-colors"
+        onClick={() => navigate("/events")}
+        className="fixed top-4 left-6 sm:left-20 z-50 flex items-center text-white hover:text-[#b19eff] transition-colors"
       >
         <ArrowLeft className="w-8 h-8 mr-3" />
+        <span className="hidden sm:inline font-Outfit"></span>
       </button>
 
       <div className="bg-bgGradient min-h-screen flex flex-col items-center p-6 md:p-10">
