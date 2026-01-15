@@ -1,13 +1,13 @@
 import React from "react";
-import aayush from "../assets/images/credits/ayush.jpg";
-import bhargav from "../assets/images/credits/Bhargav.png";
-import dhanush from "../assets/images/credits/Dhanush.jpg";
-import divesh from "../assets/images/credits/divesh.jpg";
-import nachiket from "../assets/images/credits/nachiket.jpg";
-import rutuja from "../assets/images/credits/photo.jpg";
+import { useNavigate } from "react-router-dom"; // <-- IMPORTED
+import { ArrowLeft } from "lucide-react"; // <-- IMPORTED
 import Footer from "../components/Common/Footer";
 import Navbar from "../components/Common/Navbar";
 import { Instagram, GitHub, LinkedIn } from "@mui/icons-material";
+
+// Unused local imports removed for clarity
+// import aayush from "../assets/images/credits/ayush.jpg";
+// ... (other unused imports) ...
 
 const creators = [
   {
@@ -93,9 +93,21 @@ function CreatorCard({ name, role, image, instagram, linkedin }) {
 }
 
 function Credits() {
+  const navigate = useNavigate(); // <-- CALLED THE HOOK
+
   return (
     <>
       <Navbar />
+      
+      {/* ADDED THE BACK BUTTON HERE */}
+      <button 
+        onClick={() => navigate(-1)} 
+        className="fixed top-24 left-8 sm:left-20 z-50 flex items-center text-white hover:text-[#b19eff] transition-colors"
+      >
+        <ArrowLeft className="w-8 h-8 mr-3" />
+        <span className="hidden sm:inline font-semibold text-lg">Back</span>
+      </button>
+
       <div className="min-h-screen bg-bgGradient py-24 px-8 sm:px-16 lg:px-24 flex flex-col items-center">
         <div className="max-w-screen-lg w-full">
           {/* Heading Section */}

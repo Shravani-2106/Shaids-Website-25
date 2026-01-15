@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react"; // ✅ Fixed import
+import { useNavigate } from "react-router-dom";
 import achievements from "../data/data.js";
 import Footer from "../components/Common/Footer";
 import Navbar from "../components/Common/Navbar";
@@ -70,10 +71,23 @@ function Carousel() {
 }
 
 function Achievements() {
+  const navigate = useNavigate(); // ✅ Hook for back navigation
+
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-bgGradient text-white flex flex-col ">
+
+      <div className="min-h-screen bg-bgGradient text-white flex flex-col relative">
+  
+        {/* ✅ Working Back Button */}
+        <button
+          onClick={() => navigate(-1)}
+          className="fixed top-4 left-12 sm:left-20 z-50 flex items-center text-white hover:text-[#b19eff] transition-colors"
+        >
+          <ArrowLeft className="w-8 h-8 mr-3" />
+          <span className="hidden sm:inline font-semibold"></span>
+        </button>
+
         <div className="container mx-auto px-4 py-12 sm:py-20 flex flex-col md:flex-row lg:flex-row items-center justify-between gap-8 mt-10">
           <div className="text-center md:text-left max-w-2xl">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 font-NordBold text-purple-400">
@@ -84,6 +98,7 @@ function Achievements() {
               and impactful community service. We're proud of our students!
             </p>
           </div>
+
           <Lottie
             animationData={achievementsLottie}
             loop={true}
@@ -98,6 +113,7 @@ function Achievements() {
           <Carousel />
         </div>
       </div>
+
       <Footer />
     </>
   );
