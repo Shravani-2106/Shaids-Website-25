@@ -160,19 +160,7 @@ export default function OtherAchievementsPage() {
                     ))}
                 </div>
 
-                <div className="mt-16 glass-card-3d p-8 opacity-0 animate-fade-in-up relative" style={{ animationDelay: "1.1s" }}>
-                    <div className="card-shine" />
-                    <div className="card-reflection" />
-                    <div className="flex flex-col sm:flex-row items-center justify-between gap-6 relative z-10">
-                        <div>
-                            <h3 className="text-xl font-bold text-white mb-2">Have an Achievement to Share?</h3>
-                            <p className="text-gray-400 text-sm">We love celebrating student success. Submit your accomplishments to be featured.</p>
-                        </div>
-                        <div className="px-6 py-3 rounded-full bg-[#4a90d9]/20 border border-[#4a90d9]/30 animate-explore-btn cursor-pointer">
-                            <span className="text-[#6dd5ed] font-medium">Submit Achievement</span>
-                        </div>
-                    </div>
-                </div>
+
 
                 <div className="mt-12 flex flex-wrap justify-center gap-4 opacity-0 animate-fade-in" style={{ animationDelay: "1.2s" }}>
                     {["Hackathons", "Research", "Sports", "Cultural", "Academic"].map((tag) => (
