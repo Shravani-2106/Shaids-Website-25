@@ -1,6 +1,7 @@
 
 
 import { Link } from "react-router-dom";
+import "../styles/theme.css";
 import { ArrowLeft, Trophy, Code, FlaskConical, Dumbbell, Music, Award, Sparkles } from "lucide-react";
 
 const achievements = [

@@ -1,6 +1,7 @@
 
 
 import { Link } from "react-router-dom";
+import "../styles/theme.css";
 import { ArrowLeft, BookOpen, Lightbulb, Award, Pen, Users, GraduationCap } from "lucide-react";
 
 const features = [
