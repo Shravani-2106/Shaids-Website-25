@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 import Footer from "../components/Common/Footer";
-import Navbar from "../components/Common/Navbar";
 
 const Technitude = () => {
   const reelURL =
@@ -25,24 +23,10 @@ const Technitude = () => {
 
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    console.log("Button clicked! This is a log message.");
-    Navigate(-1);
-  };
-  
   return (
     <>
-    <Navbar/>
-    {/* Back Button to Events Page */}
-      <button
-        onClick={() => navigate("/events")}
-        className="fixed top-4 left-20 sm:left-30 z-50 flex items-center text-white hover:text-[#b19eff] transition-colors"
-      >
-        <ArrowLeft className="w-8 h-8 mr-3" />
-        <span className="hidden sm:inline font-Outfit"></span>
-      </button>
       <div className="bg-bgGradient min-h-screen flex flex-col items-center w-full overflow-hidden">
-            <h1 className="text-purple-400 text-3xl sm:text-4xl md:text-6xl mt-16 text-center font-NordBold mb-6">
+        <h1 className="text-purple-400 text-3xl sm:text-4xl md:text-6xl mt-16 text-center font-NordBold mb-6">
           Technitude
         </h1>
 
@@ -53,28 +37,28 @@ const Technitude = () => {
           unique tech-based games, and enjoy an electrifying atmosphere.
         </p>
 
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full max-w-6xl px-4 mb-12">
-        <img
-          src={image10url}
-          alt="Technitude Main Event"
-          className="w-full sm:w-[76%] h-80 sm:h-[24rem] md:h-[28rem] object-cover rounded-lg shadow-lg hover:scale-[1.02] transition-transform duration-500 border border-purple-400"
-        />
-
-        <div onClick={openReelInNewTab} className="w-full sm:w-[40%] cursor-pointer">
-          <video
-            src={reelURL}
-            loop
-            muted
-            autoPlay
-            controls
-            playsInline
-            className="w-full h-80 sm:h-[24rem] md:h-[28rem] object-cover rounded-lg shadow-lg hover:scale-[1.02] transition-transform duration-500 border border-purple-400"
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full max-w-6xl px-4 mb-12">
+          <img
+            src={image10url}
+            alt="Technitude Main Event"
+            className="w-full sm:w-[76%] h-80 sm:h-[24rem] md:h-[28rem] object-cover rounded-lg shadow-lg hover:scale-[1.02] transition-transform duration-500 border border-purple-400"
           />
-        </div> 
-      </div>
 
-      <div
-  className="
+          <div onClick={openReelInNewTab} className="w-full sm:w-[40%] cursor-pointer">
+            <video
+              src={reelURL}
+              loop
+              muted
+              autoPlay
+              controls
+              playsInline
+              className="w-full h-80 sm:h-[24rem] md:h-[28rem] object-cover rounded-lg shadow-lg hover:scale-[1.02] transition-transform duration-500 border border-purple-400"
+            />
+          </div>
+        </div>
+
+        <div
+          className="
     grid 
     grid-cols-2 
     sm:grid-cols-3 
@@ -89,35 +73,35 @@ const Technitude = () => {
     mb-14 
     [grid-auto-flow:dense]
   "
->
+        >
 
-        <div className="col-span-2 row-span-2 rounded-lg overflow-hidden border border-purple-400">
-          <img src={image1url} alt="Technitude Event 1" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-        </div>
+          <div className="col-span-2 row-span-2 rounded-lg overflow-hidden border border-purple-400">
+            <img src={image1url} alt="Technitude Event 1" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+          </div>
 
-        <div className="rounded-lg overflow-hidden border border-purple-400">
-          <img src={image9url} alt="Technitude Event 2" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-        </div>
+          <div className="rounded-lg overflow-hidden border border-purple-400">
+            <img src={image9url} alt="Technitude Event 2" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+          </div>
 
-        <div className="rounded-lg overflow-hidden border border-purple-400">
-          <img src={image3url} alt="Technitude Event 3" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-        </div>
-        <div className="col-span-2 rounded-lg overflow-hidden border border-purple-400">
-          <img src={image5url} alt="Technitude Event 5" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-        </div>
+          <div className="rounded-lg overflow-hidden border border-purple-400">
+            <img src={image3url} alt="Technitude Event 3" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+          </div>
+          <div className="col-span-2 rounded-lg overflow-hidden border border-purple-400">
+            <img src={image5url} alt="Technitude Event 5" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+          </div>
 
-        <div className="rounded-lg overflow-hidden border border-purple-400">
-          <img src={image6url} alt="Technitude Event 6" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-        </div>
+          <div className="rounded-lg overflow-hidden border border-purple-400">
+            <img src={image6url} alt="Technitude Event 6" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+          </div>
 
-        <div className="col-span-2 rounded-lg overflow-hidden border border-purple-400">
-          <img src={image7url} alt="Technitude Event 7" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-        </div>
+          <div className="col-span-2 rounded-lg overflow-hidden border border-purple-400">
+            <img src={image7url} alt="Technitude Event 7" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+          </div>
 
-        <div className="rounded-lg overflow-hidden border border-purple-400">
-          <img src={image8url} alt="Technitude Event 8" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+          <div className="rounded-lg overflow-hidden border border-purple-400">
+            <img src={image8url} alt="Technitude Event 8" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+          </div>
         </div>
-      </div>
       </div>
       <Footer />
     </>

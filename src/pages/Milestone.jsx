@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
 import img1 from "../assets/images/milestone/img1.jpg";
 import img2 from "../assets/images/milestone/img2.jpg";
 import img3 from "../assets/images/milestone/img3.jpg";
@@ -11,7 +10,6 @@ import img7 from "../assets/images/milestone/img7.jpg";
 import img8 from "../assets/images/milestone/img8.jpg";
 import img9 from "../assets/images/milestone/img9.jpg";
 import img10 from "../assets/images/milestone/img10.jpg";
-import Navbar from "../components/Common/Navbar";
 import Footer from "../components/Common/Footer";
 
 const Milestone = () => {
@@ -21,16 +19,6 @@ const Milestone = () => {
 
   return (
     <>
-      <Navbar />
-
-      {/* Back Button */}
-      <button
-        onClick={() => navigate(-1)}
-        className="fixed top-4 left-12 sm:left-20 z-50 flex items-center text-white hover:text-[#b19eff] transition-colors"
-      >
-        <ArrowLeft className="w-8 h-8 mr-3" />
-        <span className="hidden sm:inline font-semibold"></span>
-      </button>
 
       {/* Main Content */}
       <div className="bg-bgGradient min-h-screen flex flex-col items-center px-6 md:px-12 py-20">

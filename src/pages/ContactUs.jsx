@@ -6,14 +6,10 @@ import contact from "../assets/images/contact.json";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import CallOutlinedIcon from "@mui/icons-material/CallOutlined";
-import { ArrowLeft } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 import Footer from "../components/Common/Footer";
-import Navbar from "../components/Common/Navbar";
 import axios from "axios";
 
 const ContactUs = () => {
-  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -45,17 +41,6 @@ const ContactUs = () => {
 
   return (
     <>
-      <Navbar />
-
-      {/* Back Button */}
-      <button
-        onClick={() => navigate(-1)}
-        className="fixed top-5 left-20 z-50 flex items-center text-white hover:text-[#b19eff] transition-colors"
-      >
-        <ArrowLeft className="w-6 h-6 mr-2" />
-        <span className="hidden sm:inline font-semibold"></span>
-      </button>
-
       {/* Main Container */}
       <div className="bg-bgGradient text-white font-Outfit flex flex-col h-full px-6 xl:flex-row justify-around items-center sm:px-16 py-20 xl:px-32 overflow-hidden">
         <Toaster position="top-right" reverseOrder={false} />
@@ -85,9 +70,8 @@ const ContactUs = () => {
             <span className="flex flex-col gap-2">
               Full name
               <span
-                className={`custom-input flex p-2 gap-2 md:py-3 border rounded-lg ${
-                  errors.fullName ? "border-red-500" : "border-gray-500"
-                }`}
+                className={`custom-input flex p-2 gap-2 md:py-3 border rounded-lg ${errors.fullName ? "border-red-500" : "border-gray-500"
+                  }`}
               >
                 <AccountCircleOutlinedIcon />
                 <input
@@ -106,9 +90,8 @@ const ContactUs = () => {
             <span className="flex flex-col gap-2">
               Email
               <span
-                className={`custom-input flex p-2 gap-2 md:py-3 border rounded-lg ${
-                  errors.email ? "border-red-500" : "border-gray-500"
-                }`}
+                className={`custom-input flex p-2 gap-2 md:py-3 border rounded-lg ${errors.email ? "border-red-500" : "border-gray-500"
+                  }`}
               >
                 <EmailOutlinedIcon />
                 <input
@@ -127,9 +110,8 @@ const ContactUs = () => {
             <span className="flex flex-col gap-2">
               Phone Number
               <span
-                className={`custom-input flex p-2 gap-2 md:py-3 border rounded-lg ${
-                  errors.phoneNumber ? "border-red-500" : "border-gray-500"
-                }`}
+                className={`custom-input flex p-2 gap-2 md:py-3 border rounded-lg ${errors.phoneNumber ? "border-red-500" : "border-gray-500"
+                  }`}
               >
                 <CallOutlinedIcon />
                 <input
@@ -155,9 +137,8 @@ const ContactUs = () => {
             <span className="flex flex-col gap-2">
               Message
               <span
-                className={`custom-input flex flex-col p-2 gap-2 md:py-3 border rounded-lg ${
-                  errors.Message ? "border-red-500" : "border-gray-500"
-                }`}
+                className={`custom-input flex flex-col p-2 gap-2 md:py-3 border rounded-lg ${errors.Message ? "border-red-500" : "border-gray-500"
+                  }`}
               >
                 <textarea
                   id="message"

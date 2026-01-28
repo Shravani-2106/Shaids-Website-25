@@ -4,7 +4,6 @@ import papers from "../data/academics"; // Import the data file
 import Lottie from "lottie-react";
 import academic from "../assets/academic.json";
 import Footer from "../components/Common/Footer";
-import Navbar from "../components/Common/Navbar";
 
 const semesters = Object.keys(papers); // Extract semester names from the keys
 
@@ -22,8 +21,6 @@ const App = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-[#11163E] to-black text-white">
-      <Navbar />
-
       {/* Header */}
       <header className="bg-opacity-90 backdrop-blur-sm bg-[#1a1f4d] border-b border-purple-900">
         <div className="container mx-auto px-4 py-4 md:py-6 flex flex-col md:flex-row items-center space-y-3 md:space-y-0 md:space-x-3">

@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
 
 import Footer from "../components/Common/Footer";
-import Navbar from "../components/Common/Navbar";
 
 const Wrkshop = () => {
   const [year, setYear] = useState(2024);
@@ -44,16 +42,6 @@ const Wrkshop = () => {
 
   return (
     <>
-      <Navbar />
-
-      {/* Back Button to Events Page */}
-      <button
-        onClick={() => navigate("/events")}
-        className="fixed top-4 left-6 sm:left-20 z-50 flex items-center text-white hover:text-[#b19eff] transition-colors"
-      >
-        <ArrowLeft className="w-8 h-8 mr-3" />
-        <span className="hidden sm:inline font-Outfit"></span>
-      </button>
 
       <div className="bg-bgGradient min-h-screen flex flex-col items-center p-6 md:p-10">
         <h1 className="text-purple-400 text-4xl md:text-6xl text-center font-NordBold mb-6 mt-10">
@@ -78,9 +66,8 @@ const Wrkshop = () => {
             onClick={toggleYear}
           >
             <div
-              className={`w-1/2 h-8 bg-purple-500 rounded-full text-white font-Outfit flex items-center justify-center transition-all duration-300 ${
-                year === 2025 ? "translate-x-full" : ""
-              }`}
+              className={`w-1/2 h-8 bg-purple-500 rounded-full text-white font-Outfit flex items-center justify-center transition-all duration-300 ${year === 2025 ? "translate-x-full" : ""
+                }`}
             >
               {year}
             </div>
@@ -119,9 +106,8 @@ const Wrkshop = () => {
                 <img
                   key={i}
                   src={photo}
-                  className={`object-cover w-full h-full rounded-xl ${
-                    i === 0 ? "col-span-2 row-span-2" : ""
-                  }`}
+                  className={`object-cover w-full h-full rounded-xl ${i === 0 ? "col-span-2 row-span-2" : ""
+                    }`}
                   alt={`2024-${i}`}
                 />
               ))}
@@ -161,9 +147,8 @@ const Wrkshop = () => {
                 <img
                   key={i}
                   src={photo}
-                  className={`object-cover w-full h-full rounded-xl ${
-                    i === 0 ? "col-span-2 row-span-2" : ""
-                  }`}
+                  className={`object-cover w-full h-full rounded-xl ${i === 0 ? "col-span-2 row-span-2" : ""
+                    }`}
                   alt={`2025-${i}`}
                 />
               ))}

@@ -6,7 +6,6 @@ import mile1 from "../assets/images/mile1.json";
 import technitudeAnimation from "../assets/images/mile.json";
 import wrkshop from "../assets/images/wrkshop.json";
 import Footer from "../components/Common/Footer";
-import Navbar from "../components/Common/Navbar";
 import LottieAnimation from "../components/HackatonAnimations/LottieAnimation.jsx";
 import people from "../assets/people.json";
 import Clock from "../assets/Clock.json";

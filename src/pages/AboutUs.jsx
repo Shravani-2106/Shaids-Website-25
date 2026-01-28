@@ -1,9 +1,8 @@
 import React from "react";
-import Navbar from "../components/Common/Navbar";
 import Footer from "../components/Common/Footer";
 import { useNavigate } from "react-router-dom";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-import { Bot, Users, Dumbbell, Palette, ArrowLeft, ChevronLeft } from "lucide-react";
+import { Bot, Users, Dumbbell, Palette, ChevronLeft } from "lucide-react";
 import qr from "../assets/images/qrcode.jpg";
 
 function ExploreCard({ icon, title, description }) {
@@ -26,10 +25,6 @@ function AboutUs() {
 
   return (
     <>
-      <Navbar />
-
-      <button onClick={() => navigate(-1)} className="fixed top-4 left-12 sm:left-20 z-50 flex items-center text-white hover:text-[#b19eff] transition-colors"> <ArrowLeft className="w-8 h-8 mr-3" /> <span className="hidden sm:inline font-semibold"></span></button>
-
       <div className="min-h-screen bg-bgGradient text-white">
         {/* Hero */}
         <section className="container mx-auto px-4 py-20 flex flex-col lg:flex-row items-center justify-between gap-8">

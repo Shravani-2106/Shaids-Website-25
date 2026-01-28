@@ -1,118 +1,41 @@
-import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
-import Shaids_logo from "../../assets/images/logo.png";
-import HackHiveButton from "../HackHIveButton";
-import StarBorder from "../../blocks/Animations/StarBorder/StarBorder";
-import { Button } from "@mui/material";
+import { useState } from "react"
+import { Link } from "react-router-dom"
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation(); // Get current location (pathname)
+const LOGO = "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/c8671fa2-2465-4069-88ca-8b2a12bf859a/image-1768971461430.png?width=8000&height=8000&resize=contain"
 
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden"; // Prevent scrolling when menu is open
-    } else {
-      document.body.style.overflow = "auto";
-    }
-    return () => {
-      document.body.style.overflow = "auto"; // Cleanup effect
-    };
-  }, [isOpen]);
-
-  const getLinkClass = (path) => {
-    return location.pathname === path
-      ? "hover:text-purple-600 text-purple-400 cursor-pointer whitespace-nowrap"
-      : "hover:text-purple-400 cursor-pointer whitespace-nowrap";
-  };
+export default function Navbar({ show = true }) {
+  const [menu, setMenu] = useState(false)
 
   return (
-    <nav className="bg-transparent py-3 fixed z-50">
-      <div className="relative w-screen mx-auto flex justify-between px-6 items-center">
-        {/* Logo */}
-        <div className="text-2xl font-bold cursor-pointer text-white ">
-          <Link to="/" className=" cursor-pointer font-NordBold">
-            <img src={Shaids_logo} alt="logo" className="w-auto size-10" />
-          </Link>
+    <nav className={`fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 py-4 sm:py-6 flex items-center justify-between backdrop-blur-md transition-all duration-700 ${show ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'}`} style={{ background: 'transparent', borderBottom: 'none' }}>
+      <Link to="/" className="flex items-center gap-2 sm:gap-3">
+        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden shadow-lg" style={{ border: '2px solid rgba(76,195,230,0.5)', boxShadow: '0 0 20px rgba(76,195,230,0.3)' }}>
+          <img src={LOGO} alt="SHAIDS Logo" className="w-full h-full object-cover" />
         </div>
-
-        
-
-        {/* Desktop Nav */}
-        <ul className="hidden md:flex space-x-6 text-white cursor-pointer text-lg  items-center w-auto  ">
-          <li className={getLinkClass("/")}>
-            <Link to="/" className=" cursor-pointer">
-              Home
-            </Link>
-          </li>
-          <li className={getLinkClass("/about-us")}>
-            <Link to="/about-us" className=" cursor-pointer">
-              About us
-            </Link>
-          </li>
-          <li className={getLinkClass("/faculty")}>
-            <Link to="/faculty" className=" cursor-pointer">
-              Faculty
-            </Link>
-          </li>
-          <li className={getLinkClass("/contact-us")}>
-            <Link to="/contact-us" className=" cursor-pointer">
-              Contact
-            </Link>
-          </li>
-        </ul>
-
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-white"
-          onClick={() => setIsOpen(true)}
-        >
-          <MenuIcon fontSize="large" />
-        </button>
+        <span className="font-semibold text-lg sm:text-xl tracking-wide font-sora" style={{ color: '#4CC3E6' }}>SHAIDS</span>
+      </Link>
+      <div className="hidden md:flex items-center gap-8">
+        {[
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact-us" }
+        ].map(i => (
+          <Link key={i.name} to={i.path} className="text-sm tracking-wide transition-colors relative group font-sora font-medium" style={{ color: '#C7D2E0' }}>
+            <span className="hover:text-white">{i.name}</span>
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#4CC3E6] to-[#6FD7F2] group-hover:w-full transition-all duration-300" />
+          </Link>
+        ))}
       </div>
-
-      {/* Mobile Menu */}
-      <div
-        className={`fixed inset-0 w-screen h-screen bg-black bg-opacity-60 backdrop-blur-lg transform ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        } transition-transform duration-500 ease-in-out flex flex-col items-center justify-center z-50`}
-      >
-        {/* Close Button */}
-        <button
-          className="absolute top-6 right-6 text-white"
-          onClick={() => setIsOpen(false)}
-        >
-          <CloseIcon fontSize="large" />
-        </button>
-
-        {/* Mobile Menu Links */}
-        <ul className="text-white text-2xl space-y-6 text-center">
-          <li className={getLinkClass("/")}>
-            <Link to="/" onClick={() => setIsOpen(false)}>
-              Home
-            </Link>
-          </li>
-          <li className={getLinkClass("/about-us")}>
-            <Link to="/about-us" onClick={() => setIsOpen(false)}>
-              About us
-            </Link>
-          </li>
-          <li className={getLinkClass("/faculty")}>
-            <Link to="/faculty" onClick={() => setIsOpen(false)}>
-              Faculty
-            </Link>
-          </li>
-          <li className={getLinkClass("/contact-us")}>
-            <Link to="/contact-us" onClick={() => setIsOpen(false)}>
-              Contact
-            </Link>
-          </li>
-        </ul>
-      </div>
+      <button className="md:hidden p-2" style={{ color: '#C7D2E0' }} onClick={() => setMenu(!menu)}>
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          {menu ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /> : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />}
+        </svg>
+      </button>
+      {menu && (
+        <div className="absolute top-full left-0 right-0 bg-[#020617]/95 backdrop-blur-xl border-t border-white/10 p-4 md:hidden flex flex-col gap-4">
+          <Link to="/" className="text-sm font-sora py-2" style={{ color: '#C7D2E0' }} onClick={() => setMenu(false)}>Home</Link>
+          <Link to="/contact-us" className="text-sm font-sora py-2" style={{ color: '#C7D2E0' }} onClick={() => setMenu(false)}>Contact</Link>
+        </div>
+      )}
     </nav>
-  );
-};
-
-export default Navbar;
+  )
+}

@@ -13,9 +13,12 @@ import AboutUs from "./pages/AboutUs.jsx";
 import Academics from "./pages/Academics.jsx";
 import Hackathon from "./pages/Hackathon.jsx";
 import Problems from "./pages/Problems.jsx";
+import GlobalNavigation from "./components/Common/GlobalNavigation.jsx";
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter basename="/">
+      <GlobalNavigation />
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/achievements" element={<Achievements />} />

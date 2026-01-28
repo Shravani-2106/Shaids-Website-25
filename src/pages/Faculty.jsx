@@ -1,8 +1,6 @@
 import React from "react";
-import { ArrowLeft } from "lucide-react"; // ✅ Added missing import
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Common/Footer";
-import Navbar from "../components/Common/Navbar";
 
 export default function Faculty() {
   const navigate = useNavigate();
@@ -31,17 +29,6 @@ export default function Faculty() {
 
   return (
     <>
-      <Navbar />
-
-      {/* Back Button */}
-      <button
-        onClick={() => navigate(-1)}
-        className="fixed top-4 left-20 z-50 flex items-center text-white hover:text-[#b19eff] transition-colors"
-      >
-        <ArrowLeft className="w-8 h-8 mr-3" />
-        <span className="hidden sm:inline font-semibold"></span>
-      </button>
-
       {/* Faculty Section */}
       <div className="bg-bgGradient flex flex-col items-center justify-center min-h-screen h-full py-20 px-4">
         <h1 className="text-white text-3xl md:text-4xl font-NordBold text-center mb-12">

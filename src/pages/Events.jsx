@@ -2,12 +2,10 @@ import React from "react";
 import "react-multi-carousel/lib/styles.css";
 import EventButton from "../components/Events/EventButton1";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
 import mile1 from "../assets/images/mile1.json";
 import technitudeAnimation from "../assets/images/mile.json";
 import wrkshop from "../assets/images/wrkshop.json";
 import Footer from "../components/Common/Footer";
-import Navbar from "../components/Common/Navbar";
 
 export default function Events() {
   const navigate = useNavigate();
@@ -18,16 +16,6 @@ export default function Events() {
 
   return (
     <>
-      <Navbar />
-
-      {/* Back Button */}
-      <button
-        onClick={() => navigate(-1)}
-        className="fixed top-5 left-20 z-50 flex items-center text-white hover:text-[#b19eff] transition-colors"
-      >
-        <ArrowLeft className="w-6 h-6 mr-2" />
-        <span className="hidden sm:inline font-semibold"></span>
-      </button>
 
       <div className="bg-bgGradient flex flex-col justify-center min-h-screen h-full">
         <div className="p-10 pb-5">
